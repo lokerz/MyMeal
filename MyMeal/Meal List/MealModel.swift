@@ -31,7 +31,7 @@ struct MealListResponse: Decodable {
     let meals: [Meal]
 }
 
-struct Meal: Decodable {
+struct Meal: Decodable, Equatable {
     let idMeal: String
     let strMeal: String
     let strCategory: String

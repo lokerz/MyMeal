@@ -5,7 +5,7 @@
 //  Created by Ridwan Abdurrasyid on 05/10/23.
 //
 import SwiftUI
-import URLImage
+import Kingfisher
 
 struct MealDetailsView: View {
     @StateObject var mealDetailsModel = MealDetailsModel()
@@ -19,18 +19,15 @@ struct MealDetailsView: View {
                     LoadingView()
                 } else if let mealDetails = mealDetailsModel.mealDetails.first {
                     // Display the meal's image
-                    URLImage(URL(string: mealDetails.strMealThumb)!) { progress in
-                        DefaultImage()
-                    } failure: { error,retry in
-                        DefaultImage()
-                    } content: { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: 300)
-                    .cornerRadius(8)
-                    
+                    KFImage(URL(string: mealDetails.strMealThumb))
+                        .resizable()
+                        .placeholder {
+                            DefaultImage()
+                        }
+                        .cancelOnDisappear(true)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: .infinity, maxHeight: 300)
+                        .cornerRadius(8)
                     
                     // Display meal details
                     VStack(alignment: .leading, spacing: 8) {

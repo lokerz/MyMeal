@@ -18,11 +18,11 @@
 		0DC7BF682ACD66A3004E9239 /* MealRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF672ACD66A3004E9239 /* MealRow.swift */; };
 		0DC7BF6A2ACD6780004E9239 /* AlphabetButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF692ACD6780004E9239 /* AlphabetButtonsView.swift */; };
 		0DC7BF6D2ACD69FB004E9239 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF6C2ACD69FB004E9239 /* LoadingView.swift */; };
-		0DC7BF702ACE3FCE004E9239 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0DC7BF6F2ACE3FCE004E9239 /* URLImage */; };
 		0DC7BF722ACE410F004E9239 /* DefaultImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF712ACE410F004E9239 /* DefaultImage.swift */; };
 		0DC7BF752ACE4275004E9239 /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF742ACE4275004E9239 /* MealDetailsView.swift */; };
 		0DC7BF772ACE428B004E9239 /* MealDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF762ACE428B004E9239 /* MealDetailsModel.swift */; };
 		0DC7BF792ACE5BF8004E9239 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF782ACE5BF8004E9239 /* EmptyView.swift */; };
+		0DC7BF7E2ACE7A2A004E9239 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0DC7BF7D2ACE7A2A004E9239 /* Kingfisher */; };
 		39C662DBE3B5B62071C29D3F /* Pods_MyMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CBCFF24C2273E41D5F91A0 /* Pods_MyMeal.framework */; };
 		A9B3F98764283DF0591F033D /* Pods_MyMealTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB6AA6EF8E2267A425A04F75 /* Pods_MyMealTests.framework */; };
 /* End PBXBuildFile section */
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DC7BF702ACE3FCE004E9239 /* URLImage in Frameworks */,
+				0DC7BF7E2ACE7A2A004E9239 /* Kingfisher in Frameworks */,
 				39C662DBE3B5B62071C29D3F /* Pods_MyMeal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,7 +252,7 @@
 			);
 			name = MyMeal;
 			packageProductDependencies = (
-				0DC7BF6F2ACE3FCE004E9239 /* URLImage */,
+				0DC7BF7D2ACE7A2A004E9239 /* Kingfisher */,
 			);
 			productName = MyMeal;
 			productReference = 0DC7BF322ACD6332004E9239 /* MyMeal.app */;
@@ -329,7 +329,7 @@
 			);
 			mainGroup = 0DC7BF292ACD6332004E9239;
 			packageReferences = (
-				0DC7BF6E2ACE3FCE004E9239 /* XCRemoteSwiftPackageReference "url-image" */,
+				0DC7BF7C2ACE7A2A004E9239 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 0DC7BF332ACD6332004E9239 /* Products */;
 			projectDirPath = "";
@@ -792,21 +792,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0DC7BF6E2ACE3FCE004E9239 /* XCRemoteSwiftPackageReference "url-image" */ = {
+		0DC7BF7C2ACE7A2A004E9239 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 7.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0DC7BF6F2ACE3FCE004E9239 /* URLImage */ = {
+		0DC7BF7D2ACE7A2A004E9239 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0DC7BF6E2ACE3FCE004E9239 /* XCRemoteSwiftPackageReference "url-image" */;
-			productName = URLImage;
+			package = 0DC7BF7C2ACE7A2A004E9239 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,5 +12,6 @@ struct DefaultImage: View {
         Image(systemName: "fork.knife.circle")
             .resizable()
             .aspectRatio(contentMode: .fit)
+            .foregroundColor(.gray)
     }
 }

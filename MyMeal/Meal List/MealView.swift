@@ -2,7 +2,8 @@ import SwiftUI
 
 struct MealView: View {
     @StateObject var mealModel = MealModel()
-    
+    @State private var selectedMeal: Meal?
+
     var body: some View {
         NavigationView {
             VStack {
@@ -17,9 +18,8 @@ struct MealView: View {
                         EmptyView()
                     } else {
                         List(mealModel.meals, id: \.idMeal) { meal in
-                            // Use NavigationLink to navigate to MealDetailsView
                             NavigationLink(destination: MealDetailsView(meal: meal)) {
-                                MealRow(meal: meal)
+                                MealRow(meal: meal, selectedMeal: $selectedMeal)
                             }
                         }
                     }

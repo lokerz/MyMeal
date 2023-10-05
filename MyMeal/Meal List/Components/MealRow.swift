@@ -6,33 +6,56 @@
 //
 
 import SwiftUI
-import URLImage
+import Kingfisher
 
 struct MealRow: View {
     let meal: Meal
+    @Binding var selectedMeal: Meal?
+    @State private var mealImage: UIImage?
     
     var body: some View {
-        HStack(spacing: 16) {
-            URLImage(URL(string: meal.strMealThumb)!) { progress in
-                DefaultImage()
-            } failure: { error,retry in 
-                DefaultImage()
-            } content: { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
-            .frame(width: 50, height: 50)
-            .cornerRadius(8)
-
-            VStack(alignment: .leading) {
-                Text(meal.strMeal.capitalized)
-                    .font(.headline)
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 16) {
+                ZStack {
+                    KFImage(URL(string: meal.strMealThumb))
+                        .resizable()
+                        .placeholder {
+                            DefaultImage()
+                        }
+                        .cancelOnDisappear(true)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: meal == selectedMeal ? .infinity : 50, height: meal == selectedMeal ? .infinity : 50)
+                        .clipped()
+                }
+                .cornerRadius(8)
                 
-                Text(meal.strCategory)
-                    .font(.subheadline)
+                if !(meal == selectedMeal) {
+                    TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
+                }
+            }
+            
+            if meal == selectedMeal {
+                TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
             }
         }
         .padding(8)
+        .onTapGesture {
+            selectedMeal = meal
+        }
+    }
+}
+
+struct TitleStack: View {
+    var title: String?
+    var subtitle: String?
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(title?.capitalized ?? "")
+                .font(.headline)
+            
+            Text(subtitle ?? "")
+                .font(.subheadline)
+        }
     }
 }
