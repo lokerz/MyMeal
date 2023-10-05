@@ -10,38 +10,44 @@ import Kingfisher
 
 struct MealRow: View {
     let meal: Meal
-    @Binding var selectedMeal: Meal?
-    @State private var mealImage: UIImage?
+    var selectedMeal: Meal?
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
+            if meal == selectedMeal {
+                TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
+            }
+
             HStack(spacing: 16) {
-                ZStack {
-                    KFImage(URL(string: meal.strMealThumb))
-                        .resizable()
-                        .placeholder {
-                            DefaultImage()
-                        }
-                        .cancelOnDisappear(true)
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: meal == selectedMeal ? .infinity : 50, height: meal == selectedMeal ? .infinity : 50)
-                        .clipped()
-                }
-                .cornerRadius(8)
+                
+                KFImage(URL(string: meal.strMealThumb))
+                    .resizable()
+                    .placeholder {
+                        DefaultImage()
+                    }
+                    .cancelOnDisappear(true)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: meal == selectedMeal ? .infinity : 50, height: meal == selectedMeal ? .infinity : 50)
+                    .cornerRadius(8)
                 
                 if !(meal == selectedMeal) {
                     TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
+                    Spacer()
                 }
             }
             
             if meal == selectedMeal {
-                TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: MealDetailsView(meal: meal)) {
+                        Text("Details")
+                            .fontWeight(.bold)
+                            .foregroundColor(.orange)
+                    }
+                }
             }
         }
         .padding(8)
-        .onTapGesture {
-            selectedMeal = meal
-        }
     }
 }
 
@@ -56,6 +62,7 @@ struct TitleStack: View {
             
             Text(subtitle ?? "")
                 .font(.subheadline)
+                .foregroundColor(.orange)
         }
     }
 }

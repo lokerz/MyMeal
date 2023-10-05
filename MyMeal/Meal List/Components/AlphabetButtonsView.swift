@@ -22,7 +22,7 @@ struct AlphabetButtonsView: View {
                             .font(.headline)
                             .padding(.horizontal, 10)
                             .padding(.vertical, 5)
-                            .background(mealModel.selectedLetter == letter ? Color.blue : Color.gray)
+                            .background(mealModel.selectedLetter == letter ? .orange : .gray)
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }

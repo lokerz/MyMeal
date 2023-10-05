@@ -2,13 +2,14 @@ import SwiftUI
 
 struct MealView: View {
     @StateObject var mealModel = MealModel()
-    @State private var selectedMeal: Meal?
-
+    
     var body: some View {
         NavigationView {
             VStack {
                 // Alphabet buttons for selecting the initial letter
                 AlphabetButtonsView(mealModel: mealModel)
+                
+                Spacer(minLength: 20)
                 
                 // List of meals or loading view
                 if mealModel.isLoading {
@@ -17,9 +18,14 @@ struct MealView: View {
                     if mealModel.meals.isEmpty {
                         EmptyView()
                     } else {
-                        List(mealModel.meals, id: \.idMeal) { meal in
-                            NavigationLink(destination: MealDetailsView(meal: meal)) {
-                                MealRow(meal: meal, selectedMeal: $selectedMeal)
+                        NavigationView {
+                            List(mealModel.meals, id: \.idMeal) { meal in
+                                MealRow(meal: meal, selectedMeal: mealModel.selectedMeal)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            mealModel.selectMeal(meal: meal)
+                                        }
+                                    }
                             }
                         }
                     }
@@ -31,6 +37,7 @@ struct MealView: View {
             // Fetch data when the view appears
             mealModel.fetchMeals()
         }
+        .tint(.orange)
     }
 }
 
