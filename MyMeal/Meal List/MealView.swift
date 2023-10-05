@@ -1,24 +1,31 @@
 import SwiftUI
 
 struct MealView: View {
-    // Observable object to fetch meal data
-    @ObservedObject var mealModel = MealModel()
+    @StateObject var mealModel = MealModel()
     
-    // State variable to track the selected letter
-    @State private var selectedLetter: String = ""
-
     var body: some View {
         NavigationView {
             VStack {
                 // Alphabet buttons for selecting the initial letter
-                AlphabetButtonsView(selectedLetter: $selectedLetter, mealModel: mealModel)
-
-                // List of meals
-                List(mealModel.meals, id: \.idMeal) { meal in
-                    MealRow(meal: meal)
+                AlphabetButtonsView(mealModel: mealModel)
+                
+                // List of meals or loading view
+                if mealModel.isLoading {
+                    LoadingView() // Display the loading view
+                } else {
+                    List(mealModel.meals, id: \.idMeal) { meal in
+                        // Use NavigationLink to navigate to MealDetailsView
+                        NavigationLink(destination: MealDetailsView(meal: meal)) {
+                            MealRow(meal: meal)
+                        }
+                    }
                 }
             }
             .navigationBarTitle("Meals")
+        }
+        .onAppear {
+            // Fetch data when the view appears
+            mealModel.fetchMeals()
         }
     }
 }

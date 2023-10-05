@@ -4,7 +4,6 @@ target 'MyMeal' do
   use_frameworks!
 
   pod 'Alamofire'
-  pod 'Kingfisher'
 
   target 'MyMealTests' do
     inherit! :search_paths

@@ -17,6 +17,11 @@
 		0DC7BF652ACD63F6004E9239 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF642ACD63F6004E9239 /* MealModel.swift */; };
 		0DC7BF682ACD66A3004E9239 /* MealRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF672ACD66A3004E9239 /* MealRow.swift */; };
 		0DC7BF6A2ACD6780004E9239 /* AlphabetButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF692ACD6780004E9239 /* AlphabetButtonsView.swift */; };
+		0DC7BF6D2ACD69FB004E9239 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF6C2ACD69FB004E9239 /* LoadingView.swift */; };
+		0DC7BF702ACE3FCE004E9239 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0DC7BF6F2ACE3FCE004E9239 /* URLImage */; };
+		0DC7BF722ACE410F004E9239 /* DefaultImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF712ACE410F004E9239 /* DefaultImage.swift */; };
+		0DC7BF752ACE4275004E9239 /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF742ACE4275004E9239 /* MealDetailsView.swift */; };
+		0DC7BF772ACE428B004E9239 /* MealDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF762ACE428B004E9239 /* MealDetailsModel.swift */; };
 		39C662DBE3B5B62071C29D3F /* Pods_MyMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CBCFF24C2273E41D5F91A0 /* Pods_MyMeal.framework */; };
 		A9B3F98764283DF0591F033D /* Pods_MyMealTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB6AA6EF8E2267A425A04F75 /* Pods_MyMealTests.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +57,10 @@
 		0DC7BF642ACD63F6004E9239 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		0DC7BF672ACD66A3004E9239 /* MealRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRow.swift; sourceTree = "<group>"; };
 		0DC7BF692ACD6780004E9239 /* AlphabetButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetButtonsView.swift; sourceTree = "<group>"; };
+		0DC7BF6C2ACD69FB004E9239 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		0DC7BF712ACE410F004E9239 /* DefaultImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImage.swift; sourceTree = "<group>"; };
+		0DC7BF742ACE4275004E9239 /* MealDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsView.swift; sourceTree = "<group>"; };
+		0DC7BF762ACE428B004E9239 /* MealDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsModel.swift; sourceTree = "<group>"; };
 		1151CD3AC040604B21C67CD9 /* Pods-MyMealTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMealTests.debug.xcconfig"; path = "Target Support Files/Pods-MyMealTests/Pods-MyMealTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AD51527032DDCFE8C5BC6DB /* Pods-MyMealTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMealTests.release.xcconfig"; path = "Target Support Files/Pods-MyMealTests/Pods-MyMealTests.release.xcconfig"; sourceTree = "<group>"; };
 		38CBCFF24C2273E41D5F91A0 /* Pods_MyMeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC7BF702ACE3FCE004E9239 /* URLImage in Frameworks */,
 				39C662DBE3B5B62071C29D3F /* Pods_MyMeal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,8 +125,10 @@
 				0DC7BF612ACD63D8004E9239 /* Sign In */,
 				0DC7BF602ACD63CB004E9239 /* Sign Up */,
 				0DC7BF5F2ACD63C5004E9239 /* Meal List */,
+				0DC7BF732ACE425A004E9239 /* Meal Details */,
 				0DC7BF352ACD6332004E9239 /* MyMealApp.swift */,
 				0DC7BF392ACD6335004E9239 /* Assets.xcassets */,
+				0DC7BF6B2ACD69F1004E9239 /* Reusable */,
 				0DC7BF3B2ACD6335004E9239 /* Preview Content */,
 			);
 			path = MyMeal;
@@ -180,6 +192,24 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		0DC7BF6B2ACD69F1004E9239 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				0DC7BF6C2ACD69FB004E9239 /* LoadingView.swift */,
+				0DC7BF712ACE410F004E9239 /* DefaultImage.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		0DC7BF732ACE425A004E9239 /* Meal Details */ = {
+			isa = PBXGroup;
+			children = (
+				0DC7BF742ACE4275004E9239 /* MealDetailsView.swift */,
+				0DC7BF762ACE428B004E9239 /* MealDetailsModel.swift */,
+			);
+			path = "Meal Details";
+			sourceTree = "<group>";
+		};
 		36B7DD10AB2FEDC1ACC71767 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +248,9 @@
 			dependencies = (
 			);
 			name = MyMeal;
+			packageProductDependencies = (
+				0DC7BF6F2ACE3FCE004E9239 /* URLImage */,
+			);
 			productName = MyMeal;
 			productReference = 0DC7BF322ACD6332004E9239 /* MyMeal.app */;
 			productType = "com.apple.product-type.application";
@@ -292,6 +325,9 @@
 				Base,
 			);
 			mainGroup = 0DC7BF292ACD6332004E9239;
+			packageReferences = (
+				0DC7BF6E2ACE3FCE004E9239 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 0DC7BF332ACD6332004E9239 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -415,11 +451,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC7BF752ACE4275004E9239 /* MealDetailsView.swift in Sources */,
 				0DC7BF362ACD6332004E9239 /* MyMealApp.swift in Sources */,
 				0DC7BF652ACD63F6004E9239 /* MealModel.swift in Sources */,
 				0DC7BF6A2ACD6780004E9239 /* AlphabetButtonsView.swift in Sources */,
 				0DC7BF632ACD63E9004E9239 /* MealView.swift in Sources */,
 				0DC7BF682ACD66A3004E9239 /* MealRow.swift in Sources */,
+				0DC7BF6D2ACD69FB004E9239 /* LoadingView.swift in Sources */,
+				0DC7BF772ACE428B004E9239 /* MealDetailsModel.swift in Sources */,
+				0DC7BF722ACE410F004E9239 /* DefaultImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,8 +625,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -615,8 +654,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -748,6 +786,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0DC7BF6E2ACE3FCE004E9239 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0DC7BF6F2ACE3FCE004E9239 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DC7BF6E2ACE3FCE004E9239 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0DC7BF2A2ACD6332004E9239 /* Project object */;
 }
