@@ -13,10 +13,14 @@ struct MealView: View {
                 if mealModel.isLoading {
                     LoadingView() // Display the loading view
                 } else {
-                    List(mealModel.meals, id: \.idMeal) { meal in
-                        // Use NavigationLink to navigate to MealDetailsView
-                        NavigationLink(destination: MealDetailsView(meal: meal)) {
-                            MealRow(meal: meal)
+                    if mealModel.meals.isEmpty {
+                        EmptyView()
+                    } else {
+                        List(mealModel.meals, id: \.idMeal) { meal in
+                            // Use NavigationLink to navigate to MealDetailsView
+                            NavigationLink(destination: MealDetailsView(meal: meal)) {
+                                MealRow(meal: meal)
+                            }
                         }
                     }
                 }

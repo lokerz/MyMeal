@@ -9,9 +9,10 @@ import Foundation
 import Alamofire
 
 class MealDetailsModel: ObservableObject {
-    @Published var mealDetails: [MealDetails] = []
-    @Published var isLoading: Bool = false
+    @Published var mealDetails: [MealDetails] = [] // Store fetched meal details
+    @Published var isLoading: Bool = false // Indicate if data is being loaded
     
+    // Function to fetch meal details by meal ID
     func fetchMeals(mealID: String) {
         let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(mealID)"
         isLoading = true
@@ -19,13 +20,13 @@ class MealDetailsModel: ObservableObject {
             switch response.result {
             case .success(let mealListResponse):
                 print("Meals fetched successfully for id \(mealID)")
-                self.mealDetails = mealListResponse.meals
+                self.mealDetails = mealListResponse.meals // Update the meal details
                 
-                self.isLoading = false
+                self.isLoading = false // Data loading is complete
 
             case .failure(let error):
                 print("Error fetching meals for id \(mealID): \(error)")
-                self.isLoading = false
+                self.isLoading = false // Data loading encountered an error
             }
         }
     }
@@ -86,6 +87,7 @@ struct MealDetails: Decodable {
     let strMeasure19: String?
     let strMeasure20: String?
     
+    // Function to extract ingredients and measures from the struct
     func ingredients() -> [Ingredient] {
         var ingredientsAndMeasures: [Ingredient] = []
         for index in 1..<21 {
@@ -106,6 +108,7 @@ struct Ingredient {
     let measure: String
 }
 
+// Extension to access ingredient and measure values by index
 extension MealDetails {
     func value(forIngredientAtIndex index: Int) -> String? {
         switch index {

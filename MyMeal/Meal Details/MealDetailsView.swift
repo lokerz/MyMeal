@@ -4,7 +4,6 @@
 //
 //  Created by Ridwan Abdurrasyid on 05/10/23.
 //
-
 import SwiftUI
 import URLImage
 
@@ -19,6 +18,7 @@ struct MealDetailsView: View {
                 if mealDetailsModel.isLoading {
                     LoadingView()
                 } else if let mealDetails = mealDetailsModel.mealDetails.first {
+                    // Display the meal's image
                     URLImage(URL(string: mealDetails.strMealThumb)!) { progress in
                         DefaultImage()
                     } failure: { error,retry in
@@ -69,7 +69,7 @@ struct MealDetailsView: View {
             }
             .padding()
         }
-        .navigationBarTitle(self.meal?.strMeal ?? "Meal Details")
+        .navigationBarTitle(self.meal?.strMeal.capitalized ?? "Meal Details")
         .onAppear {
             print(self.meal ?? "Meal not found")
             if let meal = self.meal {

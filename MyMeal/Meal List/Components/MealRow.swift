@@ -26,7 +26,7 @@ struct MealRow: View {
             .cornerRadius(8)
 
             VStack(alignment: .leading) {
-                Text(meal.strMeal)
+                Text(meal.strMeal.capitalized)
                     .font(.headline)
                 
                 Text(meal.strCategory)

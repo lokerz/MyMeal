@@ -13,13 +13,14 @@ class MealModel: ObservableObject {
             switch response.result {
             case .success(let mealListResponse):
                 print("Meals fetched successfully for letter \(self.selectedLetter)")
-                
                 self.meals = mealListResponse.meals
                 
                 self.isLoading = false
 
             case .failure(let error):
                 print("Error fetching meals for letter \(self.selectedLetter): \(error)")
+                self.meals = []
+
                 self.isLoading = false
             }
         }
