@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MealView: View {
     @StateObject var mealModel = MealModel()
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -35,12 +36,9 @@ struct MealView: View {
                     EmptyView()
                 } else {
                     List(mealModel.meals, id: \.idMeal) { meal in
-                        MealRow(meal: meal, selectedMeal: mealModel.selectedMeal)
-                            .onTapGesture {
-                                withAnimation {
-                                    mealModel.selectMeal(meal: meal)
-                                }
-                            }
+                        NavigationLink(destination: MealDetailsView(mealID: meal.idMeal)) {
+                            MealRow(meal: meal, selectedMeal: $mealModel.selectedMeal)
+                        }
                     }
                 }
             }

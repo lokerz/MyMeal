@@ -10,11 +10,11 @@ import Kingfisher
 
 struct MealRow: View {
     let meal: Meal
-    var selectedMeal: Meal?
+    @Binding var selectedMeal: Meal?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            if meal == selectedMeal {
+            if selectedMeal == meal {
                 TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
             }
 
@@ -27,23 +27,19 @@ struct MealRow: View {
                     }
                     .cancelOnDisappear(true)
                     .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: meal == selectedMeal ? .infinity : 50, maxHeight: meal == selectedMeal ? .infinity : 50)
+                    .frame(maxWidth: selectedMeal == meal ? .infinity : 50,
+                           maxHeight: selectedMeal == meal ? .infinity : 50)
                     .cornerRadius(8)
+                    .onTapGesture {
+                        withAnimation {
+                            selectedMeal = meal
+                        }
+                    }
+                    .allowsHitTesting(selectedMeal != meal)
                 
-                if !(meal == selectedMeal) {
+                if !(selectedMeal == meal) {
                     TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
                     Spacer()
-                }
-            }
-            
-            if meal == selectedMeal {
-                HStack {
-                    Spacer()
-                    NavigationLink(destination: MealDetailsView(meal: meal)) {
-                        Text("Details")
-                            .fontWeight(.bold)
-                            .foregroundColor(.orange)
-                    }
                 }
             }
         }

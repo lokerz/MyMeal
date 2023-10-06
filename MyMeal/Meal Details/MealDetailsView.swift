@@ -9,7 +9,7 @@ import Kingfisher
 
 struct MealDetailsView: View {
     @StateObject var mealDetailsModel = MealDetailsModel()
-    var meal: Meal?
+    var mealID: String?
     
     var body: some View {
         ScrollView {
@@ -43,6 +43,8 @@ struct MealDetailsView: View {
                         }
                     }
                     
+                    Spacer()
+                    
                     // Display ingredients and measures
                     Text("Ingredients:")
                         .font(.title2)
@@ -53,6 +55,8 @@ struct MealDetailsView: View {
                         Text("• \(ingredient.name.capitalized): \(ingredient.measure)")
                             .padding(.horizontal, 16)
                     }
+                    
+                    Spacer()
                     
                     // Display instructions
                     Text("Instructions:")
@@ -66,11 +70,10 @@ struct MealDetailsView: View {
             }
             .padding()
         }
-        .navigationBarTitle(self.meal?.strMeal.capitalized ?? "Meal Details")
+        .navigationBarTitle(mealDetailsModel.mealDetails.first?.strMeal.capitalized ?? "Meal Details")
         .onAppear {
-            print(self.meal ?? "Meal not found")
-            if let meal = self.meal {
-                mealDetailsModel.fetchMeals(mealID: meal.idMeal)
+            if let mealID = mealID {
+                mealDetailsModel.fetchMeals(mealID: mealID)
             }
         }
     }
@@ -78,6 +81,6 @@ struct MealDetailsView: View {
 
 struct MealDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        return MealDetailsView()
+        return MealDetailsView(mealID: "52918")
     }
 }

@@ -13,6 +13,8 @@ struct EmptyView: View {
             Image(systemName: "info.circle")
                 .font(.largeTitle)
                 .foregroundColor(.gray)
+                .imageScale(.large)
+                .padding()
             
             Text("No items to display")
                 .font(.headline)
