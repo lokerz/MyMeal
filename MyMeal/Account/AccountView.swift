@@ -16,7 +16,7 @@ struct AccountView: View {
     @StateObject private var accountModel = AccountModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack(alignment: .leading, spacing: 16) {
                 Spacer()
                 
@@ -54,7 +54,6 @@ struct AccountView: View {
                         Button("Sign In") {
                             accountModel.signIn(username: username, password: password)
                         }
-                        .fontWeight(.bold)
                         .background(.orange)
                         .foregroundColor(.white)
                         .buttonStyle(.borderedProminent)
