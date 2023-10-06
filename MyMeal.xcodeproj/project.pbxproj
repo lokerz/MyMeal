@@ -23,6 +23,8 @@
 		0DC7BF772ACE428B004E9239 /* MealDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF762ACE428B004E9239 /* MealDetailsModel.swift */; };
 		0DC7BF792ACE5BF8004E9239 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF782ACE5BF8004E9239 /* EmptyView.swift */; };
 		0DC7BF7E2ACE7A2A004E9239 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0DC7BF7D2ACE7A2A004E9239 /* Kingfisher */; };
+		0DC7BF822ACE98D4004E9239 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF812ACE98D4004E9239 /* AccountModel.swift */; };
+		0DC7BF842ACE9CDC004E9239 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF832ACE9CDC004E9239 /* AccountView.swift */; };
 		39C662DBE3B5B62071C29D3F /* Pods_MyMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CBCFF24C2273E41D5F91A0 /* Pods_MyMeal.framework */; };
 		A9B3F98764283DF0591F033D /* Pods_MyMealTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB6AA6EF8E2267A425A04F75 /* Pods_MyMealTests.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 		0DC7BF742ACE4275004E9239 /* MealDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsView.swift; sourceTree = "<group>"; };
 		0DC7BF762ACE428B004E9239 /* MealDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsModel.swift; sourceTree = "<group>"; };
 		0DC7BF782ACE5BF8004E9239 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		0DC7BF812ACE98D4004E9239 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		0DC7BF832ACE9CDC004E9239 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		1151CD3AC040604B21C67CD9 /* Pods-MyMealTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMealTests.debug.xcconfig"; path = "Target Support Files/Pods-MyMealTests/Pods-MyMealTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AD51527032DDCFE8C5BC6DB /* Pods-MyMealTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMealTests.release.xcconfig"; path = "Target Support Files/Pods-MyMealTests/Pods-MyMealTests.release.xcconfig"; sourceTree = "<group>"; };
 		38CBCFF24C2273E41D5F91A0 /* Pods_MyMeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,8 +128,7 @@
 		0DC7BF342ACD6332004E9239 /* MyMeal */ = {
 			isa = PBXGroup;
 			children = (
-				0DC7BF612ACD63D8004E9239 /* Sign In */,
-				0DC7BF602ACD63CB004E9239 /* Sign Up */,
+				0DC7BF602ACD63CB004E9239 /* Account */,
 				0DC7BF5F2ACD63C5004E9239 /* Meal List */,
 				0DC7BF732ACE425A004E9239 /* Meal Details */,
 				0DC7BF352ACD6332004E9239 /* MyMealApp.swift */,
@@ -171,18 +174,13 @@
 			path = "Meal List";
 			sourceTree = "<group>";
 		};
-		0DC7BF602ACD63CB004E9239 /* Sign Up */ = {
+		0DC7BF602ACD63CB004E9239 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				0DC7BF812ACE98D4004E9239 /* AccountModel.swift */,
+				0DC7BF832ACE9CDC004E9239 /* AccountView.swift */,
 			);
-			path = "Sign Up";
-			sourceTree = "<group>";
-		};
-		0DC7BF612ACD63D8004E9239 /* Sign In */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Sign In";
+			path = Account;
 			sourceTree = "<group>";
 		};
 		0DC7BF662ACD6698004E9239 /* Components */ = {
@@ -457,6 +455,8 @@
 				0DC7BF752ACE4275004E9239 /* MealDetailsView.swift in Sources */,
 				0DC7BF362ACD6332004E9239 /* MyMealApp.swift in Sources */,
 				0DC7BF652ACD63F6004E9239 /* MealModel.swift in Sources */,
+				0DC7BF822ACE98D4004E9239 /* AccountModel.swift in Sources */,
+				0DC7BF842ACE9CDC004E9239 /* AccountView.swift in Sources */,
 				0DC7BF6A2ACD6780004E9239 /* AlphabetButtonsView.swift in Sources */,
 				0DC7BF632ACD63E9004E9239 /* MealView.swift in Sources */,
 				0DC7BF682ACD66A3004E9239 /* MealRow.swift in Sources */,

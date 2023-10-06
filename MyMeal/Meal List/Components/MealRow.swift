@@ -27,7 +27,7 @@ struct MealRow: View {
                     }
                     .cancelOnDisappear(true)
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: meal == selectedMeal ? .infinity : 50, height: meal == selectedMeal ? .infinity : 50)
+                    .frame(maxWidth: meal == selectedMeal ? .infinity : 50, maxHeight: meal == selectedMeal ? .infinity : 50)
                     .cornerRadius(8)
                 
                 if !(meal == selectedMeal) {
