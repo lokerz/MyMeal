@@ -42,6 +42,18 @@ struct MealView: View {
             // Fetch data when the view appears
             mealModel.fetchMeals()
         }
+        .gesture(
+            DragGesture(minimumDistance: 20, coordinateSpace: .local)
+                .onEnded { value in
+                    if value.translation.width > 0 && mealModel.selectedLetter != "A" {
+                        // Swipe right to the previous letter
+                        mealModel.fetchPreviousMeals()
+                    } else if value.translation.width < 0 && mealModel.selectedLetter != "Z" {
+                        // Swipe left to the next letter
+                        mealModel.fetchNextMeals()
+                    }
+                }
+        )
         .tint(.orange)
         .toolbar {
             LogoutToolbar {

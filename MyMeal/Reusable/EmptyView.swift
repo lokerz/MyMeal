@@ -19,10 +19,8 @@ struct EmptyView: View {
             Text("No items to display")
                 .font(.headline)
                 .foregroundColor(.gray)
-
         }
         .frame(maxHeight: .infinity)
-
     }
 }
 

@@ -17,6 +17,7 @@ struct MealDetailsView: View {
             VStack(alignment: .leading, spacing: 16) {
                 if mealDetailsModel.isLoading {
                     LoadingView()
+                    
                 } else if let mealDetails = mealDetailsModel.mealDetails.first {
                     // MARK: Image Section: Display the meal's image
                     KFImage(URL(string: mealDetails.strMealThumb))
@@ -65,7 +66,10 @@ struct MealDetailsView: View {
                     Text(mealDetails.strInstructions)
                         .font(.body)
                         .padding(.horizontal, 16)
+                } else {
+                    EmptyView()
                 }
+                
                 Spacer()
             }
             .padding()

@@ -10,13 +10,11 @@ import SwiftUI
 struct AlphabetButtonsView: View {
     @ObservedObject var mealModel: MealModel // Observable object to fetch meal data
 
-    let alphabetLetters: [Character] = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ") // Alphabet Buttons Array
-
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 // Generate buttons for each letter from A to Z
-                ForEach(alphabetLetters, id: \.self) { letter in
+                ForEach(mealModel.alphabetLetters, id: \.self) { letter in
                     Button(action: {
                         // Set the selected letter and fetch meals
                         mealModel.selectedLetter = letter
