@@ -10,6 +10,8 @@
 		0D09F5712ACFAF3200BD34E9 /* AccountModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09F5702ACFAF3200BD34E9 /* AccountModelTests.swift */; };
 		0D09F5732ACFAFD800BD34E9 /* MealModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09F5722ACFAFD800BD34E9 /* MealModelTests.swift */; };
 		0D09F5752ACFB01300BD34E9 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09F5742ACFB01300BD34E9 /* NetworkingTests.swift */; };
+		0D09F5782ACFDF2F00BD34E9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09F5772ACFDF2F00BD34E9 /* OnboardingView.swift */; };
+		0D09F57A2ACFE0A700BD34E9 /* OnboardingChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09F5792ACFE0A700BD34E9 /* OnboardingChildView.swift */; };
 		0DC7BF362ACD6332004E9239 /* MyMealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7BF352ACD6332004E9239 /* MyMealApp.swift */; };
 		0DC7BF3A2ACD6335004E9239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DC7BF392ACD6335004E9239 /* Assets.xcassets */; };
 		0DC7BF3D2ACD6335004E9239 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DC7BF3C2ACD6335004E9239 /* Preview Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		0D09F5702ACFAF3200BD34E9 /* AccountModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModelTests.swift; sourceTree = "<group>"; };
 		0D09F5722ACFAFD800BD34E9 /* MealModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModelTests.swift; sourceTree = "<group>"; };
 		0D09F5742ACFB01300BD34E9 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
+		0D09F5772ACFDF2F00BD34E9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		0D09F5792ACFE0A700BD34E9 /* OnboardingChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingChildView.swift; sourceTree = "<group>"; };
 		0DC7BF322ACD6332004E9239 /* MyMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC7BF352ACD6332004E9239 /* MyMealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMealApp.swift; sourceTree = "<group>"; };
 		0DC7BF392ACD6335004E9239 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D09F5762ACFDF2000BD34E9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0D09F5772ACFDF2F00BD34E9 /* OnboardingView.swift */,
+				0D09F5792ACFE0A700BD34E9 /* OnboardingChildView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		0DC7BF292ACD6332004E9239 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +124,7 @@
 		0DC7BF342ACD6332004E9239 /* MyMeal */ = {
 			isa = PBXGroup;
 			children = (
+				0D09F5762ACFDF2000BD34E9 /* Onboarding */,
 				0DC7BF602ACD63CB004E9239 /* Account */,
 				0DC7BF5F2ACD63C5004E9239 /* Meal List */,
 				0DC7BF732ACE425A004E9239 /* Meal Details */,
@@ -398,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D09F57A2ACFE0A700BD34E9 /* OnboardingChildView.swift in Sources */,
 				0DC7BF752ACE4275004E9239 /* MealDetailsView.swift in Sources */,
 				0DC7BF362ACD6332004E9239 /* MyMealApp.swift in Sources */,
 				0DC7BF652ACD63F6004E9239 /* MealModel.swift in Sources */,
@@ -409,6 +424,7 @@
 				0DC7BF792ACE5BF8004E9239 /* EmptyView.swift in Sources */,
 				0DC7BF6D2ACD69FB004E9239 /* LoadingView.swift in Sources */,
 				0DC7BF772ACE428B004E9239 /* MealDetailsModel.swift in Sources */,
+				0D09F5782ACFDF2F00BD34E9 /* OnboardingView.swift in Sources */,
 				0DC7BF722ACE410F004E9239 /* DefaultImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

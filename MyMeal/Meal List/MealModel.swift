@@ -14,7 +14,7 @@ class MealModel: ObservableObject {
     @Published var selectedLetter: Character = "A" // Initial selected letter
     @Published var isLoading = false
     @Published var selectedMeal: Meal?
-    
+
     let alphabetLetters: [Character] = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ") // Alphabet Buttons Array
 
     // MARK: Fetch Meals
@@ -37,14 +37,14 @@ class MealModel: ObservableObject {
             }
         }
     }
-    
+
     func fetchNextMeals() {
         if let index = alphabetLetters.firstIndex(of: selectedLetter) {
             selectedLetter = alphabetLetters[index + 1]
             fetchMeals()
         }
     }
-    
+
     func fetchPreviousMeals() {
         if let index = alphabetLetters.firstIndex(of: selectedLetter) {
             selectedLetter = alphabetLetters[index - 1]
