@@ -32,7 +32,7 @@ class AccountModel: ObservableObject {
         isSignIn = true
     }
     
-    // Sign in as registered user
+    // Sign in as a registered user
     func signIn(username: String, password: String) {
         guard let user = users.first(where: { $0.username == username }) else {
             errorMessage = "User not found, please try other username."
@@ -50,17 +50,26 @@ class AccountModel: ObservableObject {
 
     // Load users from UserDefaults.
     private func loadUsers() {
-        if let userData = UserDefaults.standard.data(forKey: "users"),
-           let decodedUsers = try? JSONDecoder().decode([User].self, from: userData) {
-            users = decodedUsers
+        if let userStrings = UserDefaults.standard.stringArray(forKey: "users") {
+            users = userStrings.compactMap { userString in
+                if let data = Data(base64Encoded: userString),
+                   let decodedUser = try? JSONDecoder().decode(User.self, from: data) {
+                    return decodedUser
+                }
+                return nil
+            }
         }
     }
 
     // Save users to UserDefaults.
     private func saveUsers() {
-        if let encodedData = try? JSONEncoder().encode(users) {
-            UserDefaults.standard.set(encodedData, forKey: "users")
+        let userStrings = users.map { user in
+            if let data = try? JSONEncoder().encode(user).base64EncodedString() {
+                return data
+            }
+            return ""
         }
+        UserDefaults.standard.set(userStrings, forKey: "users")
     }
 
     // Clear user data (for sign-out, etc.).
