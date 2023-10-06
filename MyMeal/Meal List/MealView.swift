@@ -15,16 +15,7 @@ struct MealView: View {
 
     var body: some View {
         VStack {
-            // MARK: Upper Section: Title & Alphabet Buttons
-            HStack {
-                Text("Meals")
-                    .font(.largeTitle)
-                    .fontWeight(.black)
-
-                Spacer()
-            }
-            .padding()
-
+            // MARK: Upper Section
             // Alphabet buttons for selecting the initial letter
             AlphabetButtonsView(mealModel: mealModel)
 
@@ -45,6 +36,7 @@ struct MealView: View {
                 }
             }
         }
+        .navigationTitle("Meals")
         .navigationBarBackButtonHidden()
         .onAppear {
             // Fetch data when the view appears

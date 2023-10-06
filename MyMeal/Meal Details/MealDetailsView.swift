@@ -70,7 +70,7 @@ struct MealDetailsView: View {
             }
             .padding()
         }
-        .navigationBarTitle(mealDetailsModel.mealDetails.first?.strMeal.capitalized ?? "Meal Details")
+        .navigationTitle(mealDetailsModel.mealDetails.first?.strMeal.capitalized ?? "Meal Details")
         .onAppear {
             if let mealID = mealID {
                 mealDetailsModel.fetchMeals(mealID: mealID)

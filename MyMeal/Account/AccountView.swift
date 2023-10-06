@@ -17,14 +17,13 @@ struct AccountView: View {
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(spacing: 16) {
                 Spacer()
-
                 // MARK: - Header Section
                 HStack {
                     Text(accountModel.isSignIn ? "Sign In" : "Sign Up")
                         .font(.largeTitle)
-                        .fontWeight(.black)
+                        .fontWeight(.bold)
 
                     Spacer()
 
@@ -37,7 +36,8 @@ struct AccountView: View {
                 // MARK: - Text Fields Section
                 TextField("Username", text: $username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .disableAutocorrection(true)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
 
                 SecureField("Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -57,6 +57,7 @@ struct AccountView: View {
                     if accountModel.isSignIn {
                         // Sign In button
                         Button("Sign In") {
+                            removeResponder()
                             accountModel.signIn(username: username, password: password)
                         }
                         .background(.orange)
@@ -67,6 +68,7 @@ struct AccountView: View {
                     } else if password2 != "", password == password2 {
                         // Sign Up button
                         Button("Sign Up") {
+                            removeResponder()
                             accountModel.signUp(username: username, password: password)
                         }
                         .background(.orange)
@@ -79,6 +81,7 @@ struct AccountView: View {
 
                 Spacer()
             }
+            .navigationBarTitleDisplayMode(.large)
             .onAppear {
                 accountModel.isSignIn = true
                 resetView()
@@ -106,6 +109,12 @@ struct AccountView: View {
         username = ""
         password = ""
         password2 = ""
+        
+        removeResponder()
+    }
+    
+    func removeResponder() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
