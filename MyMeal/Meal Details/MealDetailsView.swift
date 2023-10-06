@@ -7,6 +7,7 @@
 import SwiftUI
 import Kingfisher
 
+//MARK: Meals Detail View
 struct MealDetailsView: View {
     @StateObject var mealDetailsModel = MealDetailsModel()
     var mealID: String?
@@ -14,11 +15,10 @@ struct MealDetailsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                // Display the meal's image
                 if mealDetailsModel.isLoading {
                     LoadingView()
                 } else if let mealDetails = mealDetailsModel.mealDetails.first {
-                    // Display the meal's image
+                    // MARK: Image Section: Display the meal's image
                     KFImage(URL(string: mealDetails.strMealThumb))
                         .resizable()
                         .placeholder {
@@ -29,7 +29,7 @@ struct MealDetailsView: View {
                         .frame(maxWidth: .infinity, maxHeight: 300)
                         .cornerRadius(8)
                     
-                    // Display meal details
+                    // MARK: Display meal details
                     VStack(alignment: .leading, spacing: 8) {
                         HStack(alignment: .center) {
                             Text("Category: ")

@@ -7,13 +7,15 @@
 
 import SwiftUI
 
+//MARK: Meal View
 struct MealView: View {
     @StateObject var mealModel = MealModel()
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode> // Environment Variable to access Back Navigation
     
     var body: some View {
         VStack {
+            //MARK: Upper Section: Title & Alphabet Buttons
             HStack {
                 Text("Meals")
                     .font(.largeTitle)
@@ -28,7 +30,8 @@ struct MealView: View {
             
             Spacer(minLength: 20)
             
-            // List of meals or loading view
+            
+            // MARK: Lower Section: List of meals or loading view
             if mealModel.isLoading {
                 LoadingView() // Display the loading view
             } else {
@@ -63,6 +66,7 @@ struct MealView_Previews: PreviewProvider {
     }
 }
 
+//MARK: Logout Toolbar
 struct LogoutToolbar: ToolbarContent {
     var completion: (() -> Void)?
     @State var isLogoutPromptVisible = false
@@ -75,6 +79,7 @@ struct LogoutToolbar: ToolbarContent {
                     .imageScale(.large)
             }
             .alert(isPresented: $isLogoutPromptVisible) {
+                //Logout Alert Prompt
                 Alert(
                     title: Text("Logout"),
                     message: Text("Are you sure you want to logout?"),

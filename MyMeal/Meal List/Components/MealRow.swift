@@ -8,18 +8,20 @@
 import SwiftUI
 import Kingfisher
 
+//MARK: Meal Row
 struct MealRow: View {
-    let meal: Meal
-    @Binding var selectedMeal: Meal?
+    let meal: Meal // The meal to display in this row
+    @Binding var selectedMeal: Meal? // Binding to track the selected meal
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             if selectedMeal == meal {
+                // Upper Title
                 TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
             }
 
             HStack(spacing: 16) {
-                
+                // Display the meal's image using Kingfisher
                 KFImage(URL(string: meal.strMealThumb))
                     .resizable()
                     .placeholder {
@@ -38,6 +40,7 @@ struct MealRow: View {
                     .allowsHitTesting(selectedMeal != meal)
                 
                 if !(selectedMeal == meal) {
+                    // Side Title
                     TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
                     Spacer()
                 }
@@ -47,6 +50,7 @@ struct MealRow: View {
     }
 }
 
+// MARK: TitleStack: A view for displaying the title and subtitle of a meal.
 struct TitleStack: View {
     var title: String?
     var subtitle: String?

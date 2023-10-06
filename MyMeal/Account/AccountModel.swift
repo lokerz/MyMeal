@@ -7,11 +7,13 @@
 
 import Foundation
 
+// MARK: - User
 struct User: Codable {
     var username: String
     var password: String
 }
 
+// MARK: - Account Model
 class AccountModel: ObservableObject {
     @Published var users: [User] = []
     @Published var currentUser: User?

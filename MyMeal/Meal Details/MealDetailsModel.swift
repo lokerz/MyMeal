@@ -8,11 +8,12 @@
 import Foundation
 import Alamofire
 
+// MARK: - MealDetailsModel
 class MealDetailsModel: ObservableObject {
     @Published var mealDetails: [MealDetails] = [] // Store fetched meal details
     @Published var isLoading: Bool = false // Indicate if data is being loaded
     
-    // Function to fetch meal details by meal ID
+    // MARK: Fetch Meals by Meal ID
     func fetchMeals(mealID: String) {
         let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(mealID)"
         isLoading = true
@@ -32,10 +33,12 @@ class MealDetailsModel: ObservableObject {
     }
 }
 
+// MARK: - MealDetailsResponse
 struct MealDetailsResponse: Decodable {
     let meals: [MealDetails]
 }
 
+// MARK: - MealDetails
 struct MealDetails: Decodable {
     let idMeal: String
     let strMeal: String
@@ -87,7 +90,7 @@ struct MealDetails: Decodable {
     let strMeasure19: String?
     let strMeasure20: String?
     
-    // Function to extract ingredients and measures from the struct
+    // MARK: Extract Ingredients and Measures
     func ingredients() -> [Ingredient] {
         var ingredientsAndMeasures: [Ingredient] = []
         for index in 1..<21 {
@@ -102,13 +105,13 @@ struct MealDetails: Decodable {
     }
 }
 
-// Define a struct to represent ingredients and measures
+// MARK: - Ingredient
 struct Ingredient {
     let name: String
     let measure: String
 }
 
-// Extension to access ingredient and measure values by index
+// MARK: Extension to Access Ingredient and Measure Values by Index
 extension MealDetails {
     func value(forIngredientAtIndex index: Int) -> String? {
         switch index {

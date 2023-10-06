@@ -1,12 +1,21 @@
+//
+//  MealModel.swift
+//  MyMeal
+//
+//  Created by Ridwan Abdurrasyid on 05/10/23.
+//
+
 import SwiftUI
 import Alamofire
 
+// MARK: - MealModel
 class MealModel: ObservableObject {
     @Published var meals: [Meal] = []
     @Published var selectedLetter: Character = "A" // Initial selected letter
     @Published var isLoading: Bool = false
     @Published var selectedMeal: Meal?
 
+    // MARK: Fetch Meals
     func fetchMeals() {
         let apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?f=\(selectedLetter)"
         isLoading = true
@@ -27,15 +36,18 @@ class MealModel: ObservableObject {
         }
     }
     
+    // MARK: Select Meal
     func selectMeal(meal: Meal) {
         self.selectedMeal = meal
     }
 }
 
+// MARK: - MealListResponse
 struct MealListResponse: Decodable {
     let meals: [Meal]
 }
 
+// MARK: - Meal
 struct Meal: Decodable, Equatable {
     let idMeal: String
     let strMeal: String

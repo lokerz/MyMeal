@@ -7,19 +7,20 @@
 
 import SwiftUI
 
+//MARK: Account View
 struct AccountView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var password2 = ""
     
-    // Create an instance of AccountModel
-    @StateObject private var accountModel = AccountModel()
+    @StateObject private var accountModel = AccountModel() // Create an instance of AccountModel
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 16) {
                 Spacer()
                 
+                // MARK: - Header Section
                 HStack {
                     Text(accountModel.isSignIn ? "Sign In" : "Sign Up")
                         .font(.largeTitle)
@@ -33,10 +34,11 @@ struct AccountView: View {
                     }
                 }
                 
+                // MARK: - Text Fields Section
                 TextField("Username", text: $username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .disableAutocorrection(true)
-
+                
                 SecureField("Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
@@ -45,6 +47,7 @@ struct AccountView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
+                // MARK: - Error Message and Buttons Section
                 HStack(alignment: .center) {
                     Text(accountModel.errorMessage)
                         .foregroundColor(.orange)
@@ -52,6 +55,7 @@ struct AccountView: View {
                     Spacer()
                     
                     if accountModel.isSignIn {
+                        // Sign In button
                         Button("Sign In") {
                             accountModel.signIn(username: username, password: password)
                         }
@@ -61,6 +65,7 @@ struct AccountView: View {
                         .controlSize(.large)
                         .cornerRadius(8)
                     } else if password2 != "", password == password2 {
+                        // Sign Up button
                         Button("Sign Up") {
                             accountModel.signUp(username: username, password: password)
                         }
@@ -86,12 +91,13 @@ struct AccountView: View {
                     label: { EmptyView() }
                 )
                 .opacity(0)
-                )
+            )
             
         }
         .tint(.orange)
     }
     
+    // Function to reset the view
     func resetView() {
         // Reset the View
         accountModel.isSuccessSignIn = false
@@ -102,7 +108,6 @@ struct AccountView: View {
         password2 = ""
     }
 }
-
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {

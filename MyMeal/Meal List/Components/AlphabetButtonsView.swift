@@ -1,11 +1,16 @@
+//
+//  AlphabetButtonsView.swift
+//  MyMeal
+//
+//  Created by Ridwan Abdurrasyid on 04/10/23.
+//
+
 import SwiftUI
 
 struct AlphabetButtonsView: View {
-    // Observable object to fetch meal data
-    @ObservedObject var mealModel: MealModel
+    @ObservedObject var mealModel: MealModel // Observable object to fetch meal data
 
-    // Alphabet Buttons Array        
-    let alphabetLetters: [Character] = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    let alphabetLetters: [Character] = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ") // Alphabet Buttons Array
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
