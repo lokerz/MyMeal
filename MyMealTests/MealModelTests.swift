@@ -47,7 +47,7 @@ class MealModelTests: XCTestCase {
         // Wait for the expectation to be fulfilled within a specified timeout (10 seconds in this case)
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
     // This test measures the performance of fetching meal detailss
     func testFetchMealDetailssPerformance() {
         // Create an expectation to wait for the network request to complete

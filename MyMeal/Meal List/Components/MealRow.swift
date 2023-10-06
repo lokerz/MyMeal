@@ -8,11 +8,11 @@
 import SwiftUI
 import Kingfisher
 
-//MARK: Meal Row
+// MARK: Meal Row
 struct MealRow: View {
     let meal: Meal // The meal to display in this row
     @Binding var selectedMeal: Meal? // Binding to track the selected meal
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             if selectedMeal == meal {
@@ -38,7 +38,7 @@ struct MealRow: View {
                         }
                     }
                     .allowsHitTesting(selectedMeal != meal)
-                
+
                 if !(selectedMeal == meal) {
                     // Side Title
                     TitleStack(title: meal.strMeal, subtitle: meal.strCategory)
@@ -54,12 +54,12 @@ struct MealRow: View {
 struct TitleStack: View {
     var title: String?
     var subtitle: String?
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(title?.capitalized ?? "")
                 .font(.headline)
-            
+
             Text(subtitle ?? "")
                 .font(.subheadline)
                 .foregroundColor(.orange)

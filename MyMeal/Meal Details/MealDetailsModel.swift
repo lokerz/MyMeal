@@ -11,8 +11,8 @@ import Alamofire
 // MARK: - MealDetailsModel
 class MealDetailsModel: ObservableObject {
     @Published var mealDetails: [MealDetails] = [] // Store fetched meal details
-    @Published var isLoading: Bool = false // Indicate if data is being loaded
-    
+    @Published var isLoading = false // Indicate if data is being loaded
+
     // MARK: Fetch Meals by Meal ID
     func fetchMeals(mealID: String) {
         let apiUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(mealID)"
@@ -22,7 +22,7 @@ class MealDetailsModel: ObservableObject {
             case .success(let mealListResponse):
                 print("Meals fetched successfully for id \(mealID)")
                 self.mealDetails = mealListResponse.meals // Update the meal details
-                
+
                 self.isLoading = false // Data loading is complete
 
             case .failure(let error):
@@ -89,7 +89,7 @@ struct MealDetails: Decodable {
     let strMeasure18: String?
     let strMeasure19: String?
     let strMeasure20: String?
-    
+
     // MARK: Extract Ingredients and Measures
     func ingredients() -> [Ingredient] {
         var ingredientsAndMeasures: [Ingredient] = []
@@ -138,7 +138,7 @@ extension MealDetails {
         default: return nil
         }
     }
-    
+
     func value(forMeasureAtIndex index: Int) -> String? {
         switch index {
         case 1: return strMeasure1

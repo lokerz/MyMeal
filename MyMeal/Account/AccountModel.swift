@@ -33,7 +33,7 @@ class AccountModel: ObservableObject {
         errorMessage = ""
         isSignIn = true
     }
-    
+
     // Sign in as a registered user
     func signIn(username: String, password: String) {
         guard let user = users.first(where: { $0.username == username }) else {

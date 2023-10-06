@@ -1,9 +1,10 @@
-platform :ios, '13.0'
+platform :ios, '15.0'
 
 target 'MyMeal' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'SwiftLint'
 
   target 'MyMealTests' do
     inherit! :search_paths

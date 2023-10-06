@@ -12,7 +12,7 @@ import Alamofire
 class MealModel: ObservableObject {
     @Published var meals: [Meal] = []
     @Published var selectedLetter: Character = "A" // Initial selected letter
-    @Published var isLoading: Bool = false
+    @Published var isLoading = false
     @Published var selectedMeal: Meal?
 
     // MARK: Fetch Meals
@@ -35,7 +35,7 @@ class MealModel: ObservableObject {
             }
         }
     }
-    
+
     // MARK: Select Meal
     func selectMeal(meal: Meal) {
         self.selectedMeal = meal
